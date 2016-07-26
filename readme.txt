@@ -5,7 +5,7 @@ MANLY RECIPES THEME
 Thanks for using the Manly Recipes theme. This is a masculine and minimal recipe theme for those who don't want a girly recipe website design.
 
 The theme's main informational page is at:
-http://www.zenwebthemes.com/shop-themes/manly-recipes/
+https://www.zenwebthemes.com/shop-themes/manly-recipes/
 
 ------------------------------
 FREE AND PREMIUM VERSIONS
@@ -42,20 +42,20 @@ DEMONSTRATION SITE
 ------------------------------
 
 If you haven't seen the theme demo, you can take a look here:
-http://www.zenwebthemes.com/manly-recipes-demo/
+https://www.zenwebthemes.com/manly-recipes-demo/
 
 ------------------------------
 DOCUMENTATION
 ------------------------------
 
 Documentation for this theme is available at:
-http://www.zenwebthemes.com/documentation/manly-recipes/
+https://www.zenwebthemes.com/documentation/manly-recipes/
 
 ------------------------------
 HOW TO GET HELP
 ------------------------------
 
-Please go to http://www.zenwebthemes.com/support/ to see all of the support options.
+Please go to http://www.zenwebthemes.com/theme-support/ to see all of the support options.
 
 ------------------------------
 UPDATES AND FREEBIES
@@ -69,4 +69,4 @@ If you sign up for the mailing list, you'll get:
 - Other notices about Zen Web Themes, like new theme releases and discounts
 
 Sign up here:
-http://www.zenwebthemes.com/shop-themes/get-all-free-themes/
+https://www.zenwebthemes.com/shop-themes/get-all-free-themes/
