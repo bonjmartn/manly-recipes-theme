@@ -37,14 +37,14 @@ class social_Widget extends WP_Widget {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
  
-    $facebook = $instance['facebook'];
-    $twitter = $instance['twitter'];
-    $pinterest = $instance['pinterest'];
-    $instagram = $instance['instagram'];
-    $googleplus = $instance['googleplus'];
-    $yelp = $instance['yelp'];
-    $youtube = $instance['youtube'];
-    $linkedin = $instance['linkedin'];
+    $facebook = esc_url( $instance['facebook'] );
+    $twitter = esc_url( $instance['twitter'] );
+    $pinterest = esc_url( $instance['pinterest'] );
+    $instagram = esc_url( $instance['instagram'] );
+    $googleplus = esc_url( $instance['googleplus'] );
+    $yelp = esc_url( $instance['yelp'] );
+    $youtube = esc_url( $instance['youtube'] );
+    $linkedin = esc_url( $instance['linkedin'] );
 
     if ( ! empty( $instance['facebook'] ) ) {
       echo sprintf( '<a href="' . $facebook . '"><i class="fa fa-facebook-square"></i></a>');
@@ -90,14 +90,14 @@ class social_Widget extends WP_Widget {
    */
   public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Follow Us', 'manly-recipes-free' );
-    $facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : __( 'https://www.facebook.com', 'manly-recipes-free' );
-    $twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : __( 'https://www.twitter.com', 'manly-recipes-free' );
-    $pinterest = ! empty( $instance['pinterest'] ) ? $instance['pinterest'] : __( 'https://www.pinterest.com', 'manly-recipes-free' );
-    $instagram = ! empty( $instance['instagram'] ) ? $instance['instagram'] : __( 'https://www.instagram.com', 'manly-recipes-free' );
-    $googleplus = ! empty( $instance['googleplus'] ) ? $instance['googleplus'] : __( 'https://plus.google.com', 'manly-recipes-free' );
-    $yelp = ! empty( $instance['yelp'] ) ? $instance['yelp'] : __( 'https://www.yelp.com', 'manly-recipes-free' );
-    $youtube = ! empty( $instance['youtube'] ) ? $instance['youtube'] : __( 'https://www.youtube.com', 'manly-recipes-free' );
-    $linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : __( 'https://www.linkedin.com', 'manly-recipes-free' );
+    $facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : __( '', 'manly-recipes-free' );
+    $twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : __( '', 'manly-recipes-free' );
+    $pinterest = ! empty( $instance['pinterest'] ) ? $instance['pinterest'] : __( '', 'manly-recipes-free' );
+    $instagram = ! empty( $instance['instagram'] ) ? $instance['instagram'] : __( '', 'manly-recipes-free' );
+    $googleplus = ! empty( $instance['googleplus'] ) ? $instance['googleplus'] : __( '', 'manly-recipes-free' );
+    $yelp = ! empty( $instance['yelp'] ) ? $instance['yelp'] : __( '', 'manly-recipes-free' );
+    $youtube = ! empty( $instance['youtube'] ) ? $instance['youtube'] : __( '', 'manly-recipes-free' );
+    $linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : __( '', 'manly-recipes-free' );
     ?>
 
     <p>

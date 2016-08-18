@@ -38,11 +38,11 @@ class aboutbox_widget extends WP_Widget {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
     // if the text field is set
-    $text = $instance['text'];
-    $link = $instance['link'];
-    $imgurl = $instance['imgurl'];
-    $btntext = $instance['btntext'];
-    $btnlink = $instance['btnlink'];
+    $text = sanitize_text_field( $instance['text'] );
+    $link = esc_url( $instance['link'] );
+    $imgurl = esc_url( $instance['imgurl'] );
+    $btntext = sanitize_text_field( $instance['btntext'] );
+    $btnlink = esc_url( $instance['btnlink'] );
 
     if ( ! empty( $instance['imgurl'] ) ) {
       echo sprintf( '<a href="' . $link . '"><img src="' . $imgurl . '"></a>');
