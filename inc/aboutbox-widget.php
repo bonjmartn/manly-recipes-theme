@@ -18,8 +18,8 @@ class aboutbox_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'aboutbox_widget', // Base ID
-      __( 'About Box', 'manly-recipes-free' ), // Name
-      array( 'description' => __( 'About Box on the Homepage', 'manly-recipes-free' ), ) // Args
+      __( 'About Box', 'manly-recipes' ), // Name
+      array( 'description' => __( 'About Box on the Homepage', 'manly-recipes' ), ) // Args
     );
   }
 
@@ -67,47 +67,47 @@ class aboutbox_widget extends WP_Widget {
    * @param array $instance Previously saved values from database.
    */
   public function form( $instance ) {
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Title', 'manly-recipes-free' );
-    $text = ! empty( $instance['text'] ) ? $instance['text'] : __( 'Text', 'manly-recipes-free' );
-    $link = ! empty( $instance['link'] ) ? $instance['link'] : __( 'Image Link', 'manly-recipes-free' );
-    $imgurl = ! empty( $instance['imgurl'] ) ? $instance['imgurl'] : __( 'Image URL from Media Library', 'manly-recipes-free' );
-    $btntext = ! empty( $instance['btntext'] ) ? $instance['btntext'] : __( 'Button Text', 'manly-recipes-free' );
-    $btnlink = ! empty( $instance['btnlink'] ) ? $instance['btnlink'] : __( 'Button Link', 'manly-recipes-free' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Title', 'manly-recipes' );
+    $text = ! empty( $instance['text'] ) ? $instance['text'] : __( 'Text', 'manly-recipes' );
+    $link = ! empty( $instance['link'] ) ? $instance['link'] : __( 'Image Link', 'manly-recipes' );
+    $imgurl = ! empty( $instance['imgurl'] ) ? $instance['imgurl'] : __( 'Image URL from Media Library', 'manly-recipes' );
+    $btntext = ! empty( $instance['btntext'] ) ? $instance['btntext'] : __( 'Button Text', 'manly-recipes' );
+    $btnlink = ! empty( $instance['btnlink'] ) ? $instance['btnlink'] : __( 'Button Link', 'manly-recipes' );
     ?>
 
 
     <p>
-    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'manly-recipes-free' ); ?></label> 
+    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'manly-recipes' ); ?></label> 
     <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" 
     value="<?php echo esc_attr( $title ); ?>">
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('img_field'); ?>"><?php _e('Paste the URL of an image from your media library', 'manly-recipes-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('img_field'); ?>"><?php _e('Paste the URL of an image from your media library', 'manly-recipes'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('img_field'); ?>" name="<?php echo $this->get_field_name('img_field'); ?>" type="text" 
     value="<?php echo esc_attr( $imgurl ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('link_field'); ?>"><?php _e('Enter the URL of the page you want the image to link to', 'manly-recipes-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('link_field'); ?>"><?php _e('Enter the URL of the page you want the image to link to', 'manly-recipes'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('link_field'); ?>" name="<?php echo $this->get_field_name('link_field'); ?>" type="text" 
     value="<?php echo esc_attr( $link ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('text_field'); ?>"><?php _e('Enter any text that you want to appear', 'manly-recipes-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('text_field'); ?>"><?php _e('Enter any text that you want to appear', 'manly-recipes'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('text_field'); ?>" name="<?php echo $this->get_field_name('text_field'); ?>" type="text" 
     value="<?php echo esc_attr( $text ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('btntext_field'); ?>"><?php _e('Enter the text for the button', 'manly-recipes-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('btntext_field'); ?>"><?php _e('Enter the text for the button', 'manly-recipes'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('btntext_field'); ?>" name="<?php echo $this->get_field_name('btntext_field'); ?>" type="text" 
     value="<?php echo esc_attr( $btntext ); ?>" />
     </p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('btnlink_field'); ?>"><?php _e('Enter the URL of the page you want the button to link to', 'manly-recipes-free'); ?></label>
+    <label for="<?php echo $this->get_field_id('btnlink_field'); ?>"><?php _e('Enter the URL of the page you want the button to link to', 'manly-recipes'); ?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('btnlink_field'); ?>" name="<?php echo $this->get_field_name('btnlink_field'); ?>" type="text" 
     value="<?php echo esc_attr( $btnlink ); ?>" />
     </p>

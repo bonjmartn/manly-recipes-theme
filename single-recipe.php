@@ -61,14 +61,14 @@
 
       <?php
         $defaults = array(
-          'before'           => '<p>' . __( 'Pages:', 'manly-recipes-free' ),
+          'before'           => '<p>' . __( 'Pages:', 'manly-recipes' ),
           'after'            => '</p>',
           'link_before'      => '',
           'link_after'       => '',
           'next_or_number'   => 'number',
           'separator'        => ' ',
-          'nextpagelink'     => __( 'Next page', 'manly-recipes-free' ),
-          'previouspagelink' => __( 'Previous page', 'manly-recipes-free' ),
+          'nextpagelink'     => __( 'Next page', 'manly-recipes' ),
+          'previouspagelink' => __( 'Previous page', 'manly-recipes' ),
           'pagelink'         => '%',
           'echo'             => 1
         );

@@ -5,25 +5,27 @@ function manly_customize_register( $wp_customize ) {
 
   // Customize title and tagline sections and labels
 
-  $wp_customize->get_section('title_tagline')->title = __('Site Name and Description', 'manly-recipes-free');  
+  $wp_customize->get_section('title_tagline')->title = __('Site Name and Description', 'manly-recipes');  
   $wp_customize->get_control('display_header_text')->section = 'title_tagline'; 
-  $wp_customize->get_control('blogname')->label = __('Site Name', 'manly-recipes-free');  
-  $wp_customize->get_control('blogdescription')->label = __('Site Description', 'manly-recipes-free');  
+  $wp_customize->get_control('blogname')->label = __('Site Name', 'manly-recipes');  
+  $wp_customize->get_control('blogdescription')->label = __('Site Description', 'manly-recipes');  
   $wp_customize->get_setting('blogname')->transport = 'postMessage';
   $wp_customize->get_setting('blogdescription')->transport  = 'postMessage';
+  $wp_customize->get_control('header_textcolor')->section = 'header_text_styles'; 
+  $wp_customize->get_control('header_textcolor')->label = __('Site Title Color', 'manly-recipes');
+  $wp_customize->get_setting('header_textcolor')->transport = 'postMessage'; 
 
   // Customize the Front Page Settings
 
-  $wp_customize->get_section('static_front_page')->title = __('Homepage Preferences', 'manly-recipes-free');
+  $wp_customize->get_section('static_front_page')->title = __('Homepage Preferences', 'manly-recipes');
   $wp_customize->get_section('static_front_page')->priority = 20;
-  $wp_customize->get_control('show_on_front')->label = __('Choose Homepage Preference', 'manly-recipes-free');  
-  $wp_customize->get_control('page_on_front')->label = __('Select Homepage', 'manly-recipes-free');  
-  $wp_customize->get_control('page_for_posts')->label = __('Select Blog Homepage', 'manly-recipes-free');  
-
+  $wp_customize->get_control('show_on_front')->label = __('Choose Homepage Preference', 'manly-recipes');  
+  $wp_customize->get_control('page_on_front')->label = __('Select Homepage', 'manly-recipes');  
+  $wp_customize->get_control('page_for_posts')->label = __('Select Blog Homepage', 'manly-recipes');  
 
   // Customize Background Settings
 
-  $wp_customize->get_section('background_image')->title = __('Background Styles', 'manly-recipes-free');  
+  $wp_customize->get_section('background_image')->title = __('Background Styles', 'manly-recipes');  
   $wp_customize->get_control('background_color')->section = 'background_image'; 
 
   $wp_customize->remove_control('header_image');
@@ -33,26 +35,32 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_panel( 'general_settings', array(
       'priority' => 10,
       'theme_supports' => '',
-      'title' => __( 'General Settings', 'manly-recipes-free' ),
-      'description' => __( 'Controls the basic settings for the theme.', 'manly-recipes-free' ),
+      'title' => __( 'General Settings', 'manly-recipes' ),
+      'description' => __( 'Controls the basic settings for the theme.', 'manly-recipes' ),
   ) );
   $wp_customize->add_panel( 'design_settings', array(
       'priority' => 20,
       'theme_supports' => '',
-      'title' => __( 'Design Settings', 'manly-recipes-free' ),
-      'description' => __( 'Controls the basic design settings for the theme.', 'manly-recipes-free' ),
+      'title' => __( 'Design Settings', 'manly-recipes' ),
+      'description' => __( 'Controls the basic design settings for the theme.', 'manly-recipes' ),
   ) ); 
   $wp_customize->add_panel( 'carousel_settings', array(
       'priority' => 30,
       'theme_supports' => '',
-      'title' => __( 'Carousel Settings', 'manly-recipes-free' ),
-      'description' => __( 'Controls the carousel slide images, text, and buttons.', 'manly-recipes-free' ),
+      'title' => __( 'Carousel Settings', 'manly-recipes' ),
+      'description' => __( 'Controls the carousel slide images, text, and buttons.', 'manly-recipes' ),
   ) ); 
   $wp_customize->add_panel( 'color_choices', array(
       'priority' => 40,
       'theme_supports' => '',
-      'title' => __( 'Color Choices', 'manly-recipes-free' ),
-      'description' => __( 'Controls the color settings for the theme.', 'manly-recipes-free' ),
+      'title' => __( 'Color Choices', 'manly-recipes' ),
+      'description' => __( 'Controls the color settings for the theme.', 'manly-recipes' ),
+  ) ); 
+  $wp_customize->add_panel( 'typography_settings', array(
+      'priority' => 50,
+      'theme_supports' => '',
+      'title' => __( 'Typography', 'manly-recipes' ),
+      'description' => __( 'Controls the fonts for the theme.', 'manly-recipes' ),
   ) ); 
 
   // Assign sections to panels
@@ -71,7 +79,7 @@ function manly_customize_register( $wp_customize ) {
 // Add Custom Logo Settings
 
   $wp_customize->add_section( 'custom_logo' , array(
-    'title'      => __('Change Your Logo','manly-recipes-free'), 
+    'title'      => __('Change Your Logo','manly-recipes'), 
     'panel'      => 'design_settings',
     'priority'   => 20    
   ) );  
@@ -88,7 +96,7 @@ function manly_customize_register( $wp_customize ) {
            $wp_customize,
            'custom_logo',
            array(
-               'label'      => __( 'Change Logo', 'manly-recipes-free' ),
+               'label'      => __( 'Change Logo', 'manly-recipes' ),
                'section'    => 'custom_logo',
                'settings'   => 'manly_logo',
                'context'    => 'manly-custom-logo' 
@@ -101,7 +109,7 @@ function manly_customize_register( $wp_customize ) {
   // Slide 1 Image
 
   $wp_customize->add_section( 'slide_1' , array(
-    'title'      => __('Slide 1','manly-recipes-free'), 
+    'title'      => __('Slide 1','manly-recipes'), 
     'panel'      => 'carousel_settings',
     'priority'   => 20    
   ) );  
@@ -119,7 +127,7 @@ function manly_customize_register( $wp_customize ) {
            $wp_customize,
            'slide_1',
            array(
-               'label'      => __( 'Choose Photo', 'manly-recipes-free' ),
+               'label'      => __( 'Choose Photo', 'manly-recipes' ),
                'section'    => 'slide_1',
                'settings'   => 'slide_1_img',
                'context'    => 'slide-1-img' 
@@ -132,7 +140,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_1_headline',
       array(
-          'default'           => __( 'Slide 1 Headline', 'manly-recipes-free' ),
+          'default'           => __( 'Slide 1 Headline', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -142,7 +150,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_1_headline',
             array(
-                'label'          => __( 'Headline', 'manly-recipes-free' ),
+                'label'          => __( 'Headline', 'manly-recipes' ),
                 'section'        => 'slide_1',
                 'settings'       => 'slide_1_headline',
                 'type'           => 'text'
@@ -155,7 +163,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_1_text',
       array(
-          'default'           => __( 'Slide 1 Text', 'manly-recipes-free' ),
+          'default'           => __( 'Slide 1 Text', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -165,7 +173,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_1_text',
             array(
-                'label'          => __( 'Text', 'manly-recipes-free' ),
+                'label'          => __( 'Text', 'manly-recipes' ),
                 'section'        => 'slide_1',
                 'settings'       => 'slide_1_text',
                 'type'           => 'text'
@@ -178,7 +186,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_1_button_text',
       array(
-          'default'           => __( 'Button Text', 'manly-recipes-free' ),
+          'default'           => __( 'Button Text', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -188,7 +196,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_1_button_text',
             array(
-                'label'          => __( 'Button Text', 'manly-recipes-free' ),
+                'label'          => __( 'Button Text', 'manly-recipes' ),
                 'section'        => 'slide_1',
                 'settings'       => 'slide_1_button_text',
                 'type'           => 'text'
@@ -201,7 +209,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_1_button_link',
       array(
-          'default'           => __( 'http://...', 'manly-recipes-free' ),
+          'default'           => __( 'http://...', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -211,7 +219,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_1_button_link',
             array(
-                'label'          => __( 'Enter the URL for the page you want the button to link to', 'manly-recipes-free' ),
+                'label'          => __( 'Enter the URL for the page you want the button to link to', 'manly-recipes' ),
                 'section'        => 'slide_1',
                 'settings'       => 'slide_1_button_link',
                 'type'           => 'text'
@@ -222,7 +230,7 @@ function manly_customize_register( $wp_customize ) {
   // Slide 2 Image
 
   $wp_customize->add_section( 'slide_2' , array(
-    'title'      => __('Slide 2','manly-recipes-free'), 
+    'title'      => __('Slide 2','manly-recipes'), 
     'panel'      => 'carousel_settings',
     'priority'   => 20    
   ) );  
@@ -240,7 +248,7 @@ function manly_customize_register( $wp_customize ) {
            $wp_customize,
            'slide_2',
            array(
-               'label'      => __( 'Choose Photo', 'manly-recipes-free' ),
+               'label'      => __( 'Choose Photo', 'manly-recipes' ),
                'section'    => 'slide_2',
                'settings'   => 'slide_2_img',
                'context'    => 'slide-2-img' 
@@ -253,7 +261,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_2_headline',
       array(
-          'default'           => __( 'Slide 2 Headline', 'manly-recipes-free' ),
+          'default'           => __( 'Slide 2 Headline', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -263,7 +271,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_2_headline',
             array(
-                'label'          => __( 'Headline', 'manly-recipes-free' ),
+                'label'          => __( 'Headline', 'manly-recipes' ),
                 'section'        => 'slide_2',
                 'settings'       => 'slide_2_headline',
                 'type'           => 'text'
@@ -276,7 +284,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_2_text',
       array(
-          'default'           => __( 'Slide 2 Text', 'manly-recipes-free' ),
+          'default'           => __( 'Slide 2 Text', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -286,7 +294,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_2_text',
             array(
-                'label'          => __( 'Text', 'manly-recipes-free' ),
+                'label'          => __( 'Text', 'manly-recipes' ),
                 'section'        => 'slide_2',
                 'settings'       => 'slide_2_text',
                 'type'           => 'text'
@@ -299,7 +307,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_2_button_text',
       array(
-          'default'           => __( 'Button Text', 'manly-recipes-free' ),
+          'default'           => __( 'Button Text', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -309,7 +317,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_2_button_text',
             array(
-                'label'          => __( 'Button Text', 'manly-recipes-free' ),
+                'label'          => __( 'Button Text', 'manly-recipes' ),
                 'section'        => 'slide_2',
                 'settings'       => 'slide_2_button_text',
                 'type'           => 'text'
@@ -322,7 +330,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_2_button_link',
       array(
-          'default'           => __( 'http://...', 'manly-recipes-free' ),
+          'default'           => __( 'http://...', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -332,7 +340,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_2_button_link',
             array(
-                'label'          => __( 'Enter the URL for the page you want the button to link to', 'manly-recipes-free' ),
+                'label'          => __( 'Enter the URL for the page you want the button to link to', 'manly-recipes' ),
                 'section'        => 'slide_2',
                 'settings'       => 'slide_2_button_link',
                 'type'           => 'text'
@@ -343,7 +351,7 @@ function manly_customize_register( $wp_customize ) {
   // Slide 3 Image
 
   $wp_customize->add_section( 'slide_3' , array(
-    'title'      => __('Slide 3','manly-recipes-free'), 
+    'title'      => __('Slide 3','manly-recipes'), 
     'panel'      => 'carousel_settings',
     'priority'   => 30    
   ) );  
@@ -361,7 +369,7 @@ function manly_customize_register( $wp_customize ) {
            $wp_customize,
            'slide_3',
            array(
-               'label'      => __( 'Choose Photo', 'manly-recipes-free' ),
+               'label'      => __( 'Choose Photo', 'manly-recipes' ),
                'section'    => 'slide_3',
                'settings'   => 'slide_3_img',
                'context'    => 'slide-3-img' 
@@ -374,7 +382,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_3_headline',
       array(
-          'default'           => __( 'Slide 3 Headline', 'manly-recipes-free' ),
+          'default'           => __( 'Slide 3 Headline', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -384,7 +392,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_3_headline',
             array(
-                'label'          => __( 'Headline', 'manly-recipes-free' ),
+                'label'          => __( 'Headline', 'manly-recipes' ),
                 'section'        => 'slide_3',
                 'settings'       => 'slide_3_headline',
                 'type'           => 'text'
@@ -397,7 +405,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_3_text',
       array(
-          'default'           => __( 'Slide 3 Text', 'manly-recipes-free' ),
+          'default'           => __( 'Slide 3 Text', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -407,7 +415,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_3_text',
             array(
-                'label'          => __( 'Text', 'manly-recipes-free' ),
+                'label'          => __( 'Text', 'manly-recipes' ),
                 'section'        => 'slide_3',
                 'settings'       => 'slide_3_text',
                 'type'           => 'text'
@@ -420,7 +428,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_3_button_text',
       array(
-          'default'           => __( 'Button Text', 'manly-recipes-free' ),
+          'default'           => __( 'Button Text', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -430,7 +438,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_3_button_text',
             array(
-                'label'          => __( 'Button Text', 'manly-recipes-free' ),
+                'label'          => __( 'Button Text', 'manly-recipes' ),
                 'section'        => 'slide_3',
                 'settings'       => 'slide_3_button_text',
                 'type'           => 'text'
@@ -443,7 +451,7 @@ function manly_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
       'slide_3_button_link',
       array(
-          'default'           => __( 'http://...', 'manly-recipes-free' ),
+          'default'           => __( 'http://...', 'manly-recipes' ),
           'transport'         => 'postMessage',
           'sanitize_callback' => 'sanitize_text'          
       )
@@ -453,9 +461,251 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'manly_slide_3_button_link',
             array(
-                'label'          => __( 'Enter the URL for the page you want the button to link to', 'manly-recipes-free' ),
+                'label'          => __( 'Enter the URL for the page you want the button to link to', 'manly-recipes' ),
                 'section'        => 'slide_3',
                 'settings'       => 'slide_3_button_link',
+                'type'           => 'text'
+            )
+        )
+   ); 
+
+  // Slide 4 Image
+
+  $wp_customize->add_section( 'slide_4' , array(
+    'title'      => __('Slide 4','manly-recipes'), 
+    'panel'      => 'carousel_settings',
+    'priority'   => 40    
+  ) );  
+  
+  $wp_customize->add_setting(
+      'slide_4_img',
+      array(
+          'default'         => get_template_directory_uri() . '/images/blueberries.jpg',
+          'transport'       => 'postMessage',
+          'sanitize_callback' => 'sanitize_text' 
+      )
+  );
+  $wp_customize->add_control(
+       new WP_Customize_Image_Control(
+           $wp_customize,
+           'slide_4',
+           array(
+               'label'      => __( 'Choose Photo', 'manly-recipes' ),
+               'section'    => 'slide_4',
+               'settings'   => 'slide_4_img',
+               'context'    => 'slide-4-img' 
+           )
+       )
+   ); 
+
+  // Slide 4 Headline
+
+  $wp_customize->add_setting(
+      'slide_4_headline',
+      array(
+          'default'           => __( 'Slide 4 Headline', 'manly-recipes' ),
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'          
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'manly_slide_4_headline',
+            array(
+                'label'          => __( 'Headline', 'manly-recipes' ),
+                'section'        => 'slide_4',
+                'settings'       => 'slide_4_headline',
+                'type'           => 'text'
+            )
+        )
+   ); 
+
+  // Slide 4 Text
+
+  $wp_customize->add_setting(
+      'slide_4_text',
+      array(
+          'default'           => __( 'Slide 4 Text', 'manly-recipes' ),
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'          
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'manly_slide_4_text',
+            array(
+                'label'          => __( 'Text', 'manly-recipes' ),
+                'section'        => 'slide_4',
+                'settings'       => 'slide_4_text',
+                'type'           => 'text'
+            )
+        )
+   ); 
+
+  // Slide 4 Button Text
+
+  $wp_customize->add_setting(
+      'slide_4_button_text',
+      array(
+          'default'           => __( 'Button Text', 'manly-recipes' ),
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'          
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'manly_slide_4_button_text',
+            array(
+                'label'          => __( 'Button Text', 'manly-recipes' ),
+                'section'        => 'slide_4',
+                'settings'       => 'slide_4_button_text',
+                'type'           => 'text'
+            )
+        )
+   ); 
+
+  // Slide 4 Button Link
+
+  $wp_customize->add_setting(
+      'slide_4_button_link',
+      array(
+          'default'           => __( 'http://...', 'manly-recipes' ),
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'          
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'manly_slide_4_button_link',
+            array(
+                'label'          => __( 'Enter the URL for the page you want the button to link to', 'manly-recipes' ),
+                'section'        => 'slide_4',
+                'settings'       => 'slide_4_button_link',
+                'type'           => 'text'
+            )
+        )
+   ); 
+
+    // Slide 5 Image
+
+  $wp_customize->add_section( 'slide_5' , array(
+    'title'      => __('Slide 5','manly-recipes'), 
+    'panel'      => 'carousel_settings',
+    'priority'   => 50    
+  ) );  
+  
+  $wp_customize->add_setting(
+      'slide_5_img',
+      array(
+          'default'         => get_template_directory_uri() . '/images/blueberries.jpg',
+          'transport'       => 'postMessage',
+          'sanitize_callback' => 'sanitize_text' 
+      )
+  );
+  $wp_customize->add_control(
+       new WP_Customize_Image_Control(
+           $wp_customize,
+           'slide_5',
+           array(
+               'label'      => __( 'Choose Photo', 'manly-recipes' ),
+               'section'    => 'slide_5',
+               'settings'   => 'slide_5_img',
+               'context'    => 'slide-5-img' 
+           )
+       )
+   ); 
+
+  // Slide 5 Headline
+
+  $wp_customize->add_setting(
+      'slide_5_headline',
+      array(
+          'default'           => __( 'Slide 5 Headline', 'manly-recipes' ),
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'          
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'manly_slide_5_headline',
+            array(
+                'label'          => __( 'Headline', 'manly-recipes' ),
+                'section'        => 'slide_5',
+                'settings'       => 'slide_5_headline',
+                'type'           => 'text'
+            )
+        )
+   ); 
+
+  // Slide 5 Text
+
+  $wp_customize->add_setting(
+      'slide_5_text',
+      array(
+          'default'           => __( 'Slide 5 Text', 'manly-recipes' ),
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'          
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'manly_slide_5_text',
+            array(
+                'label'          => __( 'Text', 'manly-recipes' ),
+                'section'        => 'slide_5',
+                'settings'       => 'slide_5_text',
+                'type'           => 'text'
+            )
+        )
+   ); 
+
+  // Slide 5 Button Text
+
+  $wp_customize->add_setting(
+      'slide_5_button_text',
+      array(
+          'default'           => __( 'Button Text', 'manly-recipes' ),
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'          
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'manly_slide_5_button_text',
+            array(
+                'label'          => __( 'Button Text', 'manly-recipes' ),
+                'section'        => 'slide_5',
+                'settings'       => 'slide_5_button_text',
+                'type'           => 'text'
+            )
+        )
+   ); 
+
+  // Slide 5 Button Link
+
+  $wp_customize->add_setting(
+      'slide_5_button_link',
+      array(
+          'default'           => __( 'http://...', 'manly-recipes' ),
+          'transport'         => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'          
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'manly_slide_5_button_link',
+            array(
+                'label'          => __( 'Enter the URL for the page you want the button to link to', 'manly-recipes' ),
+                'section'        => 'slide_5',
+                'settings'       => 'slide_5_button_link',
                 'type'           => 'text'
             )
         )
@@ -464,10 +714,66 @@ function manly_customize_register( $wp_customize ) {
   
 // COLOR CHOICES PANEL ........................................ //
 
+
+// Text Colors
+
+  $wp_customize->add_section( 'text_colors' , array(
+    'title'      => __('Text Colors','manly-recipes'), 
+    'panel'      => 'color_choices',
+    'priority'   => 100    
+  ) );
+
+  $wp_customize->add_setting(
+      'manly_h1_color',
+      array(
+          'default'         => '#555555',
+          'transport'       => 'postMessage',
+          'sanitize_callback' => 'sanitize_text' 
+      )
+  );
+  $wp_customize->add_control(
+       new WP_Customize_Color_Control(
+           $wp_customize,
+           'custom_h1_color',
+           array(
+               'label'      => __( 'Headings Color', 'manly-recipes' ),
+               'section'    => 'text_colors',
+               'settings'   => 'manly_h1_color' 
+           )
+       )
+   );
+
+  $wp_customize->add_section( 'p_styles' , array(
+    'title'      => __('Paragraph Text Styles','manly-recipes'), 
+    'panel'      => 'color_choices',
+    'priority'   => 130    
+  ) );  
+  $wp_customize->add_setting(
+      'manly_p_color',
+      array(
+          'default'         => '#555555',
+          'transport'       => 'postMessage',
+          'sanitize_callback' => 'sanitize_text' 
+      )
+  );
+  $wp_customize->add_control(
+       new WP_Customize_Color_Control(
+           $wp_customize,
+           'custom_p_color',
+           array(
+               'label'      => __( 'Paragraph Color', 'manly-recipes' ),
+               'section'    => 'text_colors',
+               'settings'   => 'manly_p_color' 
+           )
+       )
+   );
+
+
+
 // Accent Color
 
   $wp_customize->add_section( 'theme_colors' , array(
-    'title'      => __('Accent Color','manly-recipes-free'), 
+    'title'      => __('Accent Color','manly-recipes'), 
     'panel'      => 'color_choices',
     'priority'   => 100    
   ) );
@@ -485,7 +791,7 @@ function manly_customize_register( $wp_customize ) {
            $wp_customize,
            'custom_accent_color',
            array(
-               'label'      => __( '-- WARNING -- <br><br>Some of this will look weird until you save it or reload the page. Just choose your color and save it. Do not worry about what it looks like in the preview.<br><br>Accent color for links, buttons, menu highlights, and hover effects', 'manly-recipes-free' ),
+               'label'      => __( '-- WARNING -- <br><br>Some of this will look weird until you save it or reload the page. Just choose your color and save it. Do not worry about what it looks like in the preview.<br><br>Accent color for links, buttons, menu highlights, and hover effects', 'manly-recipes' ),
                'section'    => 'theme_colors',
                'settings'   => 'manly_accent_color' 
            )
@@ -493,11 +799,130 @@ function manly_customize_register( $wp_customize ) {
    ); 
 
 
+// TYPOGRAPHY PANEL ........................................ //
 
+// Headings Font
+
+$wp_customize->add_section( 'custom_h_fonts' , array(
+    'title'      => __('Headings Font','manly-recipes'), 
+    'panel'      => 'typography_settings',
+    'priority'   => 100    
+  ) ); 
+
+$wp_customize->add_setting(
+      'manly_h1_font_type',
+      array(
+          'default'         => 'Open Sans',
+          'transport'       => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'
+      )
+  );
+
+   $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'custom_h1_font_type',
+            array(
+                'label'          => __( 'Font', 'manly-recipes' ),
+                'section'        => 'custom_h_fonts',
+                'settings'       => 'manly_h1_font_type',
+                'type'           => 'select',
+                'choices'        => array(
+                  'Open Sans' =>  'Open Sans',
+                  'Roboto'  =>  'Roboto',
+                  'Source Sans Pro' =>  'Source Sans Pro',
+                  'Raleway' =>  'Raleway',
+                  'Titillium Web' =>  'Titillium Web',
+                  'Josefin Sans'  =>  'Josefin Sans',
+                  'Josefin Slab'  =>  'Josefin Slab',
+                  'Kanit' =>  'Kanit',
+                  'Trirong' =>  'Trirong',
+                  'Cormorant Garamond'  =>  'Cormorant Garamond',
+                  'Taviraj' =>  'Taviraj'
+                )
+            )
+        )       
+   );
+
+
+ // Paragraph Font
+
+   $wp_customize->add_section( 'custom_p_fonts' , array(
+    'title'      => __('Paragraph Font','manly-recipes'), 
+    'panel'      => 'typography_settings',
+    'priority'   => 100    
+  ) );  
+
+   $wp_customize->add_setting(
+      'manly_p_font_size',
+      array(
+          'default'         => '14px',
+          'transport'       => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'
+      )
+  );
+  $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'custom_p_font_size',
+            array(
+                'label'          => __( 'Font Size', 'manly-recipes' ),
+                'section'        => 'custom_p_fonts',
+                'settings'       => 'manly_p_font_size',
+                'type'           => 'select',
+                'choices'        => array(
+                  '12'   => '12px',
+                  '14'   => '14px',
+                  '16'   => '16px',
+                  '18'   => '18px',
+                  '20'   => '20px',
+                  '22'   => '22px'
+                )
+            )
+        )       
+   ); 
+
+
+   $wp_customize->add_setting(
+      'manly_p_font_type',
+      array(
+          'default'         => 'Open Sans',
+          'transport'       => 'postMessage',
+          'sanitize_callback' => 'sanitize_text'
+      )
+  );
+
+   $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'custom_p_font_type',
+            array(
+                'label'          => __( 'Font', 'manly-recipes' ),
+                'section'        => 'custom_p_fonts',
+                'settings'       => 'manly_p_font_type',
+                'type'           => 'select',
+                'choices'        => array(
+                  'Open Sans' =>  'Open Sans',
+                  'Roboto'  =>  'Roboto',
+                  'Source Sans Pro' =>  'Source Sans Pro',
+                  'Raleway' =>  'Raleway',
+                  'Titillium Web' =>  'Titillium Web',
+                  'Josefin Sans'  =>  'Josefin Sans',
+                  'Josefin Slab'  =>  'Josefin Slab',
+                  'Kanit' =>  'Kanit',
+                  'Trirong' =>  'Trirong',
+                  'Cormorant Garamond'  =>  'Cormorant Garamond',
+                  'Taviraj' =>  'Taviraj'
+                )
+            )
+        )       
+   );
+
+  
   // Add Custom CSS Textfield
 
   $wp_customize->add_section( 'custom_css_field' , array(
-    'title'      => __('Custom CSS','manly-recipes-free'), 
+    'title'      => __('Custom CSS','manly-recipes'), 
     'panel'      => 'design_settings',
     'priority'   => 2000    
   ) );  
@@ -512,7 +937,7 @@ function manly_customize_register( $wp_customize ) {
             $wp_customize,
             'custom_css',
             array(
-                'label'          => __( 'Add custom CSS here', 'manly-recipes-free' ),
+                'label'          => __( 'Add custom CSS here', 'manly-recipes' ),
                 'section'        => 'custom_css_field',
                 'settings'       => 'manly_custom_css',
                 'type'           => 'textarea'
@@ -540,6 +965,15 @@ function manly_style_header() {
 
 <style type="text/css">
 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	font-family: <?php echo get_theme_mod('manly_h1_font_type'); ?>;
+}
+
 h1,
 h1 a,
 h2,
@@ -553,14 +987,23 @@ h5 a,
 h6,
 h6 a {
   color: <?php echo get_theme_mod('manly_h1_color'); ?>;
+  font-family: <?php echo get_theme_mod('manly_h1_font_type'); ?>;
 }
 
 p {  
+  font-size: <?php echo get_theme_mod('manly_p_font_size') . 'px'; ?>;
   color: <?php echo get_theme_mod('manly_p_color'); ?>;
+  font-family: <?php echo get_theme_mod('manly_p_font_type'); ?>;
 }
 
 li {
+  font-size: <?php echo get_theme_mod('manly_p_font_size') . 'px'; ?>;
   color: <?php echo get_theme_mod('manly_p_color'); ?>;
+  font-family: <?php echo get_theme_mod('manly_p_font_type'); ?>;
+}
+
+a {
+	font-family: <?php echo get_theme_mod('manly_p_font_type'); ?>;
 }
 
 a,

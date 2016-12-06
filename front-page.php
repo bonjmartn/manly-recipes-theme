@@ -11,6 +11,8 @@
         <li data-target="#manlyCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#manlyCarousel" data-slide-to="1"></li>
         <li data-target="#manlyCarousel" data-slide-to="2"></li>
+        <li data-target="#manlyCarousel" data-slide-to="3"></li>
+        <li data-target="#manlyCarousel" data-slide-to="4"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
@@ -43,10 +45,28 @@
             </div>
           </div>
         </div>
+        <div class="item">
+          <img class="fourth-slide" src="<?php echo get_theme_mod( 'slide_4_img' ); ?>" alt="<?php echo get_theme_mod( 'slide_4_headline' ); ?>">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 id="headline-4"><?php echo get_theme_mod( 'slide_4_headline' ); ?></h1>
+              <span id="slide-text-4"><?php echo get_theme_mod( 'slide_4_text' ); ?></span>
+              <a href="<?php echo get_theme_mod( 'slide_4_button_link' ); ?>"><button><?php echo get_theme_mod( 'slide_4_button_text' ); ?></button></a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="fifth-slide" src="<?php echo get_theme_mod( 'slide_5_img' ); ?>" alt="<?php echo get_theme_mod( 'slide_5_headline' ); ?>">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 id="headline-5"><?php echo get_theme_mod( 'slide_5_headline' ); ?></h1>
+              <span id="slide-text-5"><?php echo get_theme_mod( 'slide_5_text' ); ?></span>
+              <a href="<?php echo get_theme_mod( 'slide_5_button_link' ); ?>"><button><?php echo get_theme_mod( 'slide_5_button_text' ); ?></button></a>
+            </div>
+          </div>
+        </div>
       </div>
-
-    </div>
-</div><!-- end of carousel -->
+    </div><!-- end of carousel -->
 
 
 </div><!-- end of full container -->
@@ -65,7 +85,7 @@
         <?php the_content(); ?>
 
         <?php endwhile; else : ?>
-        <p><?php _e( 'Sorry, no posts matched your criteria.', 'manly-recipes-free' ); ?></p>
+        <p><?php _e( 'Sorry, no posts matched your criteria.', 'manly-recipes' ); ?></p>
 
         <?php endif; ?> 
 
@@ -124,7 +144,7 @@
         <?php the_content(); ?>
 
         <?php endwhile; else : ?>
-        <p><?php _e( 'Sorry, no posts matched your criteria.', 'manly-recipes-free' ); ?></p>
+        <p><?php _e( 'Sorry, no posts matched your criteria.', 'manly-recipes' ); ?></p>
 
         <?php endif; ?>
 
@@ -132,6 +152,46 @@
 
           <?php
           $args = array( 'posts_per_page' => 4, 'post_type' => 'recipe', 'orderby' => 'date' );
+          $postslist = get_posts( $args );
+          foreach ( $postslist as $post ) :
+          setup_postdata( $post ); ?> 
+
+          <div class="col span_3_of_12 four-more-posts">
+
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'medium' ); ?></a>
+            <p>Posted on <?php echo the_time('l, F jS, Y');?> in <?php the_category( ', ' ); ?> with <a href="<?php comments_link(); ?>"><?php comments_number(); ?></a></p>
+            <a href="<?php the_permalink(); ?>"><button>Read More</button></a>
+
+          </div>
+
+            <?php
+            endforeach; 
+            wp_reset_postdata();
+            ?>
+      
+    </div>
+
+<hr class="post-separator">
+
+<h2 class="home-titles">Latest Blog Posts</h2>
+
+    <div class="section group">
+
+        <!-- WP LOOP -->
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+        <?php the_content(); ?>
+
+        <?php endwhile; else : ?>
+        <p><?php _e( 'Sorry, no posts matched your criteria.', 'manly-recipes' ); ?></p>
+
+        <?php endif; ?>
+
+        <!-- show 4 more posts -->
+
+          <?php
+          $args = array( 'posts_per_page' => 4, 'offset' => 1, 'orderby' => 'date' );
           $postslist = get_posts( $args );
           foreach ( $postslist as $post ) :
           setup_postdata( $post ); ?> 

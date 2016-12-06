@@ -17,56 +17,91 @@
 
 <div class="page-container">
 
-<div class="main-header">
+  <div class="main-header">
 
-  <div class="section group">
-    <div class="col span_4_of_12_menus">
+    <div class="section group">
+      <div class="col span_4_of_12_menus">
 
-      <?php if( get_theme_mod( 'manly_logo' ) != "" ): ?>
-      <a href="<?php echo esc_url( home_url() ); ?>"><img src="<?php echo get_theme_mod( 'manly_logo' ); ?>"></a>
-      <?php endif; ?>
+        <?php if( get_theme_mod( 'manly_logo' ) != "" ): ?>
+        <a href="<?php echo esc_url( home_url() ); ?>"><img id="logo" src="<?php echo get_theme_mod( 'manly_logo' ); ?>"></a>
+        <?php endif; ?>
 
-    </div>
+      </div>
 
-<!-- first menu -->
+  <!-- first menu -->
 
-    <div class="col span_8_of_12_menus">
+      <div class="col span_8_of_12_menus">
 
-       <nav class="navbar navbar-default menu1">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
+         <nav class="navbar navbar-default menu1">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-                  <div class="collapse navbar-collapse" id="defaultNavbar1">
-                      <?php
-                      wp_nav_menu( array(
-                        'menu'              => 'first-menu',
-                        'theme_location'    => 'first-menu',
-                        'depth'             => 2,
-                        'container'         => 'false',
-                        'container_class'   => 'collapse navbar-collapse',
-                        'container_id'      => 'defaultNavbar1',
-                        'menu_class'        => 'nav navbar-nav',
-                        'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                        'walker'            => new wp_bootstrap_navwalker())
-                      );
-                      ?>
-                  </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-
-
-    </div>
-    </div><!-- end of section group -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="defaultNavbar1">
+                        <?php
+                        wp_nav_menu( array(
+                          'menu'              => 'first-menu',
+                          'theme_location'    => 'first-menu',
+                          'depth'             => 2,
+                          'container'         => 'false',
+                          'container_class'   => 'collapse navbar-collapse',
+                          'container_id'      => 'defaultNavbar1',
+                          'menu_class'        => 'nav navbar-nav',
+                          'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                          'walker'            => new wp_bootstrap_navwalker())
+                        );
+                        ?>
+                    </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
 
 
-</div><!-- end of main header -->
+
+  <!-- second menu -->
+
+
+         <nav class="navbar navbar-default menu2">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar2" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="defaultNavbar2">
+                        <?php
+                        wp_nav_menu( array(
+                          'menu'              => 'second-menu',
+                          'theme_location'    => 'second-menu',
+                          'depth'             => 2,
+                          'container'         => 'false',
+                          'container_class'   => 'collapse navbar-collapse',
+                          'container_id'      => 'defaultNavbar2',
+                          'menu_class'        => 'nav navbar-nav',
+                          'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                          'walker'            => new wp_bootstrap_navwalker())
+                        );
+                        ?>
+                    </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+      </div>
+      </div><!-- end of section group -->
+
+
+  </div><!-- end of main header -->
 </div><!-- end of page container -->

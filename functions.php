@@ -72,7 +72,7 @@ function manly_woocommerce_support() {
 
 function manly_google_fonts() {
   $query_args = array(
-    'family' => 'Open+Sans:400,400i,600,600i,700,700i',
+    'family' => 'Cormorant+Garamond:400,400i,600,600i,700,700i|Josefin+Sans:400,400i,600,600i,700,700i|Josefin+Slab:400,400i,600,600i,700,700i|Kanit:400,400i,600,600i,700,700i|Open+Sans:400,400i,600,600i,700,700i|Raleway:400,400i,600,600i,700,700i|Roboto:400,400i,500,500i,700,700i|Source+Sans+Pro:400,400i,600,600i,700,700i|Taviraj:400,400i,600,600i,700,700i|Titillium+Web:400,400i,600,600i,700,700i|Trirong:400,400i,600,600i,700,700i',
     'subset' => 'latin,latin-ext',
   );
   wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
@@ -87,8 +87,8 @@ function manly_post_type_maker() {
     $args = array(
     	/*your custom post type arguments here*/
 		'labels' => array(
-        'name' => __( 'Recipes', 'manly-recipes-free' ),
-        'singular_name' => __( 'Recipe', 'manly-recipes-free' )
+        'name' => __( 'Recipes', 'manly-recipes' ),
+        'singular_name' => __( 'Recipe', 'manly-recipes' )
       	),
       	'public' => true,
       	'has_archive' => true,
@@ -112,9 +112,9 @@ if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] )
 
 	$query->set( 'post_type', $post_types );
 	return $query;
-	}
-	}
-	add_filter( 'pre_get_posts', 'manly_add_custom_types_to_tax' );
+}
+}
+add_filter( 'pre_get_posts', 'manly_add_custom_types_to_tax' );
 
 // Content Width Requirement
 
@@ -129,8 +129,8 @@ function manly_register_theme_menus() {
 
 	register_nav_menus (
 		array (
-			'first-menu' => __( 'First Menu', 'manly-recipes-free'),
-			'second-menu' => __( 'Second Menu', 'manly-recipes-free')
+			'first-menu' => __( 'First Menu', 'manly-recipes'),
+			'second-menu' => __( 'Second Menu', 'manly-recipes')
 	));
 }
 

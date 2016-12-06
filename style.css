@@ -1,14 +1,14 @@
 /*
-Theme Name: Manly Recipes Free
-Theme URI: https://www.zenwebthemes.com/shop-themes/manly-recipes-free/
+Theme Name: Manly Recipes
+Theme URI: https://www.zenwebthemes.com/shop-themes/manly-recipes/
 Author: Bonnie Martin
 Author URI: https://www.zenwebthemes.com
-Description: Manly Recipes is a masculine and minimal recipe theme for those who don't want a girly recipe website. This is the free version.
+Description: Manly Recipes is a masculine and minimal recipe theme for those who don't want a girly recipe website.
 Version: 1.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: two-columns, right-sidebar, grid-layout, custom-header, custom-menu, featured-images, footer-widgets, theme-options, blog, food-and-drink
-Text Domain: manly-recipes-free
+Tags: two-columns, left-sidebar, right-sidebar, full-width-template, grid-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, footer-widgets, theme-options, blog, food-and-drink
+Text Domain: manly-recipes
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -512,7 +512,6 @@ button.recent-excerpt  {
 	text-align: center;
 }
 
-
 /* =Bootstrap Nav Customizations
 ----------------------------------------------- */
 
@@ -577,6 +576,12 @@ button.recent-excerpt  {
 	font-weight: 700;
 }
 
+.menu2 {
+	margin-bottom: 20px;
+	border-top: 1px solid;
+	font-weight: 600;
+}
+
 .nav > li > a {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -596,6 +601,9 @@ button.recent-excerpt  {
  	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     	color: #555555;
 	}
+	.menu2 {
+		display: none;
+	}
 }
 
 /* Bootstrap Carousel Customizations
@@ -603,7 +611,9 @@ button.recent-excerpt  {
 
 #headline-1,
 #headline-2,
-#headline-3 {
+#headline-3,
+#headline-4,
+#headline-5 {
 	color: #FFFFFF;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -694,7 +704,9 @@ button.recent-excerpt  {
 	}
 	#headline-1,
 	#headline-2,
-	#headline-3 {
+	#headline-3,
+	#headline-4,
+	#headline-5 {
 		font-size: 34px;
 	}
 }
@@ -725,7 +737,9 @@ button.recent-excerpt  {
 	}
 	#headline-1,
 	#headline-2,
-	#headline-3 {
+	#headline-3,
+	#headline-4,
+	#headline-5 {
 		font-size: 32px;
 		margin-bottom: 10px;
 	}
@@ -744,7 +758,9 @@ button.recent-excerpt  {
 	}
 	#headline-1,
 	#headline-2,
-	#headline-3 {
+	#headline-3,
+	#headline-4,
+	#headline-5 {
 		font-size: 28px;
 	}
 }
@@ -1035,8 +1051,8 @@ object {
  
 .pagination ul li {
 	list-style: none;
-	margin: 0 10px 0 0;
-	padding: 0;
+	margin:0 10px 0 0;
+	padding:0;
 	float: left;
 }
  
@@ -1257,6 +1273,33 @@ footer ul,
 footer ol,
 footer li {
 	color: #FFFFFF;
+}
+
+.footer-social {
+	border: 0px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #FFFFFF;
+	letter-spacing: 1px;
+}
+
+.footer-social a,
+.footer-social a:visited {
+	color: #FFFFFF;
+}
+
+.footer-social .fa {
+	color: #FFFFFF;
+	font-size: 24px;
+	margin: 0 4px 10px 0px;
+}
+
+.footer-social .fa:hover,
+.footer-social a:hover {
+	text-decoration: none;
 }
 
 #copyright a {

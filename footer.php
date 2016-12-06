@@ -5,6 +5,14 @@
 
   <div class="page-container">
 
+        <!-- social icons widget -->
+
+          <div class="page-container">
+            <?php if ( ! dynamic_sidebar( 'social-icons-footer') ): ?>
+              <p>Set up your social icons with a widget. Go to Appearance > Widgets and use the "Social Icons Footer" widget.</p>
+            <?php endif; ?>
+          </div>
+
         <div class="section group">
           <div class="col span_3_of_12">
             <?php if ( ! dynamic_sidebar( 'footer-1') ): ?>
